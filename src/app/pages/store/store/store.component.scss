@@ -1,0 +1,25 @@
+#background-page {
+    background-image: url("./../../../../assets/img/page.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.list-md {
+    background: none !important;
+}
+ion-list {
+    ion-item {
+        --background: white !important;
+        padding: 0 !important;
+        --color: black;
+    }
+}
+ion-searchbar {
+    max-width: 95%;
+}
+ion-select {
+    color: white;
+}
