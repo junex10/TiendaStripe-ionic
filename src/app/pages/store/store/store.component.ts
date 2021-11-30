@@ -5,7 +5,7 @@ import {
   GetStockByCategoryDTO,
   GetCategoryDTO
 } from 'src/app/dtos/dtos.module';
-import { AlertCommon } from 'src/app/shared/commons/alertCommon';
+import { AlertCommon } from 'src/app/shared/commons/alert.common';
 import { FormControl, Validators } from '@angular/forms';
 import { IonSearchbar } from '@ionic/angular';
 

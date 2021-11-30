@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { LoginService } from 'src/app/services/login/login.service';
-import { SpinnerCommon } from 'src/app/shared/commons/spinnerCommon';
-import { AlertCommon } from 'src/app/shared/commons/alertCommon';
+import { SpinnerCommon } from 'src/app/shared/commons/spinner.common';
+import { AlertCommon } from 'src/app/shared/commons/alert.common';
 import { Router } from '@angular/router';
 
 @Component({

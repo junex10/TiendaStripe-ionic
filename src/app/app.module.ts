@@ -12,6 +12,11 @@ import { StoreModule } from './pages/store/store.module';
 import { AppComponent } from './app.component';
 import { RouterLinkActive } from '@angular/router';
 
+import { Camera } from '@ionic-native/camera/ngx';
+import { CameraPreview } from '@ionic-native/camera-preview/ngx';
+
+import { CameraComponent } from './shared/camera/camera.component';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -25,7 +30,13 @@ import { RouterLinkActive } from '@angular/router';
     BrowserAnimationsModule,
     StoreModule
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, RouterLinkActive],
+  providers: [
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, 
+    RouterLinkActive,
+    Camera,
+    CameraPreview,
+    CameraComponent
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
