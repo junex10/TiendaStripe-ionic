@@ -34,7 +34,7 @@ export class NewProductComponent implements OnInit {
       product: [null, Validators.required],
       price: [null, Validators.required],
       stock: [null, Validators.required],
-      image: [null, Validators.required]
+      image: ['assets/img/box.jpg', Validators.required]
     })
   }
 
@@ -67,7 +67,10 @@ export class NewProductComponent implements OnInit {
   async presentModal() {
     const modal = await this.modal.create({
       component: CameraComponent,
-      cssClass: 'my-custom-class'
+      cssClass: 'my-custom-class',
+      componentProps: {
+        image: this.form.get('image').value
+      }
     });
     modal.onDidDismiss()
     .then(image => this.form.get('image').setValue(image.data.result))

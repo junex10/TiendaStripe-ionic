@@ -52,6 +52,9 @@
         </div>
       </div>
       <div class='col-12 mt-4'>
+        <img [src]="form.get('image').value" class='w-100 img img-thumbnail' height='150' />
+      </div>
+      <div class='col-12 mt-4'>
         <div class="ion-padding">
           <button type='button' class='btn btn-success btn-block mt-4 w-75 boxShadowItems' (click)="choosePhoto()">
             Foto del producto
