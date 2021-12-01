@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import {
   GetCategoryDTO
 } from 'src/app/dtos/dtos.module';
@@ -19,7 +18,6 @@ import { CameraComponent } from 'src/app/shared/camera/camera.component';
 
 export class NewProductComponent implements OnInit {
 
-  options: CameraOptions;
   tempImg: string;
   activedCamera: boolean = false;
   category: GetCategoryDTO[] = [];
@@ -27,12 +25,10 @@ export class NewProductComponent implements OnInit {
   
   constructor(
     private route: Router,
-    private camera: Camera,
     private store: StoreService,
     private alert: AlertCommon,
     private fb: FormBuilder,
-    public modal: ModalController,
-    private cameraModal: CameraComponent
+    public modal: ModalController
   ) {
     this.form = this.fb.group({
       product: [null, Validators.required],
@@ -66,13 +62,15 @@ export class NewProductComponent implements OnInit {
 
   }
   choosePhoto = () => {
-    this.presentModal();
+    this.presentModal()
   }
   async presentModal() {
     const modal = await this.modal.create({
       component: CameraComponent,
       cssClass: 'my-custom-class'
     });
+    modal.onDidDismiss()
+    .then(image => this.form.get('image').setValue(image.data.result))
     return await modal.present();
   }
 }

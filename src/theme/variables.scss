@@ -331,3 +331,19 @@ ion-fab{
   --background: transparent !important;
   --border: none !important;
 }
+.list-md {
+  background: none !important;
+}
+ion-list {
+  ion-item {
+      --background: white !important;
+      padding: 0 !important;
+      --color: black;
+      --border-style: none;
+  }
+}
+.btn {
+  border: none !important;
+  border-radius: 25px;
+  font-weight: bolder;
+}

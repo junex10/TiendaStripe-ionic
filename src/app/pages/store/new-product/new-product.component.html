@@ -10,28 +10,50 @@
   <form class='d-block m-auto text-center form-login w-75'>
     <div class='row mt-4 card boxShadowLight'>
       <div class='col-12'>
-        <span class='login-icon'><i class="fas fa-shopping-basket"></i></span>
-        <input type='text' placeholder='Producto...' name='product' #product>
+        <div class='row mt-4'>
+          <div class='col-2'>
+            <span class='login-icon'><i class="fas fa-shopping-basket"></i></span>
+          </div>
+          <div class='col-10'>
+            <input type='text' class='w-100' placeholder='Producto...' name='product' #product>
+          </div>
+        </div>
       </div>
       <div class='col-12 mt-4'>
-        <span class='login-icon'><i class="fas fa-dollar-sign"></i></span>
-        <input type='number' placeholder='Precio...' name='price' #price>
+        <div class='row'>
+          <div class='col-2'>
+            <span class='login-icon'><i class="fas fa-dollar-sign"></i></span>
+          </div>
+          <div class='col-10'>
+            <input type='number' class='w-100' placeholder='Precio...' name='price' #price>
+          </div>
+        </div>
       </div>
       <div class='col-12 mt-4'>
-        <span class='login-icon'><i class="fas fa-cubes"></i></span>
-        <input type='number' placeholder='En stock...' name='stock' #stock>
+        <div class='row'>
+          <div class='col-2'>
+            <span class='login-icon'><i class="fas fa-cubes"></i></span>
+          </div>
+          <div class='col-10'>
+            <input type='number' class='w-100' placeholder='En stock...' name='stock' #stock>
+          </div>
+        </div>
       </div>
       <div class='col-12 mt-4'>
-        <span class='login-icon'><i class="fas fa-tags"></i></span>
-        <ion-select interface="popover" >
-          <ion-select-option *ngFor="let c of category; let i = index" value="{{ c.name }}">
-            <p>{{ c.name }}</p>
-          </ion-select-option>
-        </ion-select>
+        <div class='row'>
+          <div class='col-2'>
+            <span class='login-icon'><i class="fas fa-tags"></i></span>
+          </div>
+          <div class='col-10'>
+            <select class='form-control'>
+              <option *ngFor='let c of category' [value]='c.name'>{{ c.name }}</option>
+            </select>
+          </div>
+        </div>
       </div>
       <div class='col-12 mt-4'>
         <div class="ion-padding">
-          <button type='button' class='btn btn-success btn-block mt-4 w-75' (click)="choosePhoto()">
+          <button type='button' class='btn btn-success btn-block mt-4 w-75 boxShadowItems' (click)="choosePhoto()">
             Foto del producto
           </button>
           <img [src]="tempImg" />

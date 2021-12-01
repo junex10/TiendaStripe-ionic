@@ -21,7 +21,7 @@ import { CameraComponent } from './shared/camera/camera.component';
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
-    BrowserModule, 
+    BrowserModule,
     IonicModule.forRoot(), 
     AppRoutingModule, 
     FormsModule, 

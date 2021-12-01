@@ -19,3 +19,12 @@ ion-back-button{
     display: initial !important;
     color: white;
 }
+select{
+    border: none !important;
+    border-bottom: 1px solid black !important;
+    border-radius: 0% !important;
+}
+.login-icon{
+    font-size: 30px;
+    color: var(--green);
+}

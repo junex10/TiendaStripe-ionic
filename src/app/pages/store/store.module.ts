@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+
 import { StoreComponent } from './store/store.component';
 import { TabsComponent } from 'src/app/shared/tabs/tabs.component';
 import { IonicModule } from '@ionic/angular';
@@ -36,7 +37,10 @@ const routes: Routes = [
   declarations: [
     StoreComponent,
     TabsComponent,
-    SidebarComponent
+    SidebarComponent,
+    NewCategoryComponent,
+    NewProductComponent,
+    ProductDetailsComponent
   ],
   imports: [
     CommonModule,

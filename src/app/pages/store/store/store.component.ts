@@ -37,7 +37,6 @@ export class StoreComponent implements OnInit {
 
   buscar = (event: CustomEvent) => {
     let { value } = event.detail;
-    //let valor = event.target.value;
     let busqueda = this.products;
 
     if (value.length === 0) {
