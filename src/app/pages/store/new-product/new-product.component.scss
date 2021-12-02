@@ -10,14 +10,6 @@ ion-content{
         border-bottom: 1px solid black;
         outline: none !important;
     }
-    .login-icon{
-        vertical-align: middle;
-        padding-right: 10px;
-    }
-}
-ion-back-button{
-    display: initial !important;
-    color: white;
 }
 select{
     border: none !important;
@@ -25,6 +17,6 @@ select{
     border-radius: 0% !important;
 }
 .login-icon{
-    font-size: 30px;
+    font-size: 26px;
     color: var(--green);
 }

@@ -26,4 +26,7 @@ export class StoreService {
   
   public registerStock = (form: RegisterStockDTO) => 
     this.http.post<RegisterStockDTO>(`${this.store}registerStock`, form, HTTP_OPTIONS)
+  
+  public newCategory = (form: GetCategoryDTO) =>
+    this.http.post<GetCategoryDTO>(`${this.store}newCategory`, form, HTTP_OPTIONS)
 }

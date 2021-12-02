@@ -1,0 +1,14 @@
+.form-login{
+    input{
+        width: 80%;
+        padding: 10px;
+        border: none;
+        background: none;
+        border-bottom: 1px solid black;
+        outline: none !important;
+    }
+}
+.login-icon{
+    font-size: 26px;
+    color: var(--green);
+}
