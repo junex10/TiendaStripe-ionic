@@ -12,13 +12,15 @@ export class ToastCommon{
 
     successToast = async (
         header: string,
-        message: string
+        message: string,
+        position: 'top' | 'middle' | 'bottom' = 'top'
     ) => {
         const toast = await this.toast.create({
             header: header,
             message: message,
             duration: 3000,
-            cssClass: 'successToast'
+            cssClass: 'successToast',
+            position: position
         });
         toast.present();
     }
