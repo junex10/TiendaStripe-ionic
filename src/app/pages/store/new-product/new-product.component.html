@@ -45,7 +45,7 @@
             <span class='login-icon'><i class="fas fa-tags"></i></span>
           </div>
           <div class='col-10'>
-            <select class='form-control'>
+            <select class='form-control' (change)='selectCat($event)'>
               <option *ngFor='let c of category' [value]='c.name'>{{ c.name }}</option>
             </select>
           </div>
@@ -59,10 +59,9 @@
           <button type='button' class='btn btn-success btn-block mt-4 w-75 boxShadowItems' (click)="choosePhoto()">
             Foto del producto
           </button>
-          <img [src]="tempImg" />
         </div>
       </div>
     </div>
-    <!--<button type='button' (click)="login(product, price)" class='btn btn-success btn-block mt-4 w-75'>Registrar</button>-->
+    <button type='button' (click)="register(product, price, stock)" class='btn btn-success btn-block mt-4 w-75 mb-4 boxShadowLight'>Registrar</button>
   </form>
 </ion-content>

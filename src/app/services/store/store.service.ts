@@ -3,7 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { HTTP_OPTIONS, URL_SERVICIOS } from 'src/app/shared/commons/config';
 import { 
   GetStockByCategoryDTO,
-  GetCategoryDTO
+  GetCategoryDTO,
+  RegisterStockDTO
 } from 'src/app/dtos/dtos.module';
 
 @Injectable({
@@ -23,4 +24,6 @@ export class StoreService {
   public getCategorys = () => 
     this.http.get<GetCategoryDTO[]>(`${this.store}getCategory`)
   
+  public registerStock = (form: RegisterStockDTO) => 
+    this.http.post<RegisterStockDTO>(`${this.store}registerStock`, form, HTTP_OPTIONS)
 }

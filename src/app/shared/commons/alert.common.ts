@@ -19,8 +19,7 @@ export class AlertCommon {
         });
 
         await alert.present();
-
-        const { role } = await alert.onDidDismiss();
+        //const { role } = await alert.onDidDismiss();
     }
 
     conectionError = async () => {
@@ -33,8 +32,7 @@ export class AlertCommon {
         });
 
         await alert.present();
-
-        const { role } = await alert.onDidDismiss();
+        //const { role } = await alert.onDidDismiss();
     }
 
     alertPersonalized = async (
@@ -52,7 +50,19 @@ export class AlertCommon {
         });
 
         await alert.present();
-
-        const { role } = await alert.onDidDismiss();
+        //const { role } = await alert.onDidDismiss();
+    }
+    successAlert = async (
+        header: string,
+        message: string
+    ) => {
+        const alert = await this.alert.create({
+            cssClass: 'successAlert',
+            header: header,
+            message: message,
+            animated: true
+        });
+        await alert.present();
+        //const { role } = await alert.onDidDismiss();
     }
 }

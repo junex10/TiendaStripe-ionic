@@ -302,12 +302,18 @@
     font-weight: bold;
   }
 }
+.successAlert{
+  .alert-title{
+    color: var(--blue-dark) !important;
+  }
+}
 /* Loader */
-.loading-wrapper.sc-ion-loading-ios {
-  background-color: white;
+.loader{
+  --background: white !important;
+  --spiner-color: var(--green) !important;
 }
 .loading-content {
-  color: var(--green);
+  color: var(--blue-dark);
 }
 /* Ion list */
 ion-list{
@@ -346,4 +352,11 @@ ion-list {
   border: none !important;
   border-radius: 25px;
   font-weight: bolder;
+}
+/* Toast */
+.successToast{
+  --background: var(--green);
+  --color: white;
+  font-weight: bold;
+  --box-shadow: 0 3px 6px 0 rgba(50, 50, 50, .7);
 }

@@ -12,7 +12,7 @@ export class SpinnerCommon {
         private loading: LoadingController
     ) { }
 
-    async loadingAuth(message: string) {
+    async loadingAuth(message: string = 'Cargando...') {
         this.loader = await this.loading.create({
             cssClass: 'loader',
             message: message
