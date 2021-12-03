@@ -121,6 +121,11 @@ export class NewProductComponent implements OnInit {
             }, 2000)
           }
         )
-    } else this.alert.invalidFormAlert('Error', 'Debe completar los campos')
+    } else {
+      setTimeout(() => {
+        this.spinner.dismissAuth()
+        this.alert.invalidFormAlert('Error', 'Debe completar los campos')
+      }, 1000)
+    }
   }
 }

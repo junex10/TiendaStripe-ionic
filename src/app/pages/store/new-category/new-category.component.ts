@@ -50,6 +50,11 @@ export class NewCategoryComponent implements OnInit {
             }, 2000)
           }
         )
+    } else {
+      setTimeout(() => {
+        this.spinner.dismissAuth();
+        this.alert.invalidFormAlert('Formulario inválido', 'Verifique bien los datos del formulario')
+      }, 1000)
     }
   }
 }

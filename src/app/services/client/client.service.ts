@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HTTP_OPTIONS, URL_SERVICIOS } from 'src/app/shared/commons/config';
 import { 
-  GetUserListDTO,
-  GetUserDTO
+  GetUserDTO,
+  NewClientDTO
 } from 'src/app/dtos/dtos.module';
 
 @Injectable({
@@ -20,6 +20,6 @@ export class ClientService {
   public getClients = () => 
     this.http.get<GetUserDTO[]>(`${this.users}getUsers`)
 
-  public newClient = (form: any) => 
-    this.http.post<any>(`${this.users}registerUser`, form, HTTP_OPTIONS);
+  public newClient = (form: NewClientDTO) => 
+    this.http.post(`${this.users}registerUser`, form, HTTP_OPTIONS);
 }

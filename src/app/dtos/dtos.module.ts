@@ -11,5 +11,14 @@ export {
 } from './request/store.dto';
 export {
     GetUserListDTO,
-    GetUserDTO
+    GetUserDTO,
+    NewClientDTO,
+    CartDTO,
+    ControlKeysDTO,
+    PermitsKeysDTO,
+    PermitsDTO,
+    PersonDTO,
+    CardsDTO,
+    AccessDTO,
+    ProfileDTO
 } from './request/users.dto';

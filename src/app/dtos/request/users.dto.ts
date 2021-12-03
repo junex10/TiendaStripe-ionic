@@ -49,3 +49,10 @@ export class GetUserListDTO{
     email: string;
     role: string;
 }
+export class NewClientDTO{
+    email: string;
+    password: string;
+    repeat_password: string;
+    userType: string;
+    person: PersonDTO;
+}
