@@ -13,7 +13,7 @@ export const ACTIONS_STORE = [
 export const ACTIONS_CLIENT = [
     {
         title: 'Nuevo cliente',
-        icon: 'pricetag',
-        url: '/product/new-product'
+        icon: 'person-add',
+        url: '/client/new-client'
     }
 ]

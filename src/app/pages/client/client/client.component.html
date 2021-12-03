@@ -1,14 +1,12 @@
 <div id='background-page'>
   <div class='container-fluid mt-3'>
     <ion-list-header>
-      <ng-container *ngIf="bar">
         <ion-searchbar #searchbar [ngStyle]="{'color': 'black'}" placeholder="Buscar..." animated (ionChange)="buscar($event)"></ion-searchbar>
-      </ng-container>
     </ion-list-header>
     <ion-list>
       <ion-item lines="none" class='boxShadowItems mt-4' *ngFor='let item of clients; let i = index'>
         <ion-label>{{ item.email }}</ion-label>
-        <ion-icon slot='end' name='arrow-forward' [ngStyle]="{'color': 'black'}" [routerLink]="['/product', item.id]"></ion-icon>
+        <ion-icon slot='end' name='arrow-forward' [ngStyle]="{'color': 'black'}" [routerLink]="['/client-detail', item.id]"></ion-icon>
       </ion-item>
     </ion-list>
   </div>
