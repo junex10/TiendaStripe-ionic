@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 import {
-  ACTIONS_STORE
+  ACTIONS_STORE,
+  ACTIONS_CLIENT
 } from 'src/app/shared/commons/actions.common';
 
 @Component({
@@ -26,6 +27,9 @@ export class SidebarComponent implements OnInit {
     switch(this.section) {
       case 'store':
         this.appOptions = ACTIONS_STORE;
+      break;
+      case 'client':
+        this.appOptions = ACTIONS_CLIENT;
       break;
     }
   }

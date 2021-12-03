@@ -36,8 +36,13 @@
       </ion-toolbar>
     </ion-header>
 
-    <ion-content *ngIf="section == 'store'">
-      <app-store></app-store>
+    <ion-content>
+      <ng-container *ngIf="section == 'store'">
+        <app-store></app-store>
+      </ng-container>
+      <ng-container *ngIf="section == 'client'">
+        <app-client></app-client>
+      </ng-container>
     </ion-content>
 
   </div>

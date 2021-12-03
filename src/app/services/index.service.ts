@@ -4,3 +4,9 @@ export {
 export {
     StoreService
 } from './store/store.service';
+export {
+    ClientService
+} from './client/client.service';
+export {
+    SalesService
+} from './sales/sales.service';

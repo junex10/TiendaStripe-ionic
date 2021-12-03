@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { StoreModule } from './pages/store/store.module';
+
 import { AppComponent } from './app.component';
 import { RouterLinkActive } from '@angular/router';
 
@@ -16,6 +17,7 @@ import { Camera } from '@ionic-native/camera/ngx';
 import { CameraPreview } from '@ionic-native/camera-preview/ngx';
 
 import { CameraComponent } from './shared/camera/camera.component';
+import { PagesModule } from './pages/pages.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,7 +30,7 @@ import { CameraComponent } from './shared/camera/camera.component';
     ReactiveFormsModule, 
     HttpClientModule,
     BrowserAnimationsModule,
-    StoreModule
+    PagesModule
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, 

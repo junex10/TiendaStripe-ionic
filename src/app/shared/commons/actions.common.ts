@@ -10,3 +10,10 @@ export const ACTIONS_STORE = [
         url: '/category/new-category'
     }
 ];
+export const ACTIONS_CLIENT = [
+    {
+        title: 'Nuevo cliente',
+        icon: 'pricetag',
+        url: '/product/new-product'
+    }
+]

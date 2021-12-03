@@ -13,9 +13,11 @@ export class TabsComponent implements OnInit {
   constructor(
     private route: Router
   ) { 
-    this.section = this.route.url;
+    
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.section = this.route.url.replace('/', '');
+  }
 
 }

@@ -9,3 +9,7 @@ export {
 export {
     RegisterStockDTO
 } from './request/store.dto';
+export {
+    GetUserListDTO,
+    GetUserDTO
+} from './request/users.dto';

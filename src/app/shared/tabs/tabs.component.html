@@ -1,19 +1,19 @@
 <ion-tabs>
   <ion-tab-bar slot="bottom" class='boxShadow'>
-    <ion-tab-button tab="tab1" selected>
+    <ion-tab-button [routerLink]="['/store']">
       <i class="fas fa-store icon-tab"></i>
       <ion-label>Tienda</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="tab2">
+    <ion-tab-button [routerLink]="['/client']">
       <i class="fas fa-users icon-tab"></i>
       <ion-label>Clientes</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="tab3">
+    <ion-tab-button [routerLink]="['/sales']">
       <i class="fas fa-chart-line icon-tab"></i>
       <ion-label>Ventas</ion-label>
     </ion-tab-button>
   </ion-tab-bar>
-  <app-sidebar [section]="'store'"></app-sidebar>
+  <app-sidebar [section]="section"></app-sidebar>
 </ion-tabs>

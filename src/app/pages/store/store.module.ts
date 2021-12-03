@@ -10,6 +10,7 @@ import { StoreGuard } from 'src/app/guard/store/store.guard';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { NewProductComponent } from './new-product/new-product.component';
 import { NewCategoryComponent } from './new-category/new-category.component';
+import { ClientComponent } from '../client/client/client.component';
 
 const routes: Routes = [
   {
@@ -35,9 +36,6 @@ const routes: Routes = [
 ];
 @NgModule({
   declarations: [
-    StoreComponent,
-    TabsComponent,
-    SidebarComponent,
     NewCategoryComponent,
     NewProductComponent,
     ProductDetailsComponent
