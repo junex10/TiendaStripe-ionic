@@ -9,3 +9,4 @@ export const HTTP_OPTIONS = {
         'authorization': authorization === null ? '' : authorization.token 
     })
 };
+export const USER_TYPE = ['Gerente', 'Usuario'];

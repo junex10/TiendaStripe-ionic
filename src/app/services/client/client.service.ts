@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { URL_SERVICIOS } from 'src/app/shared/commons/config';
+import { HTTP_OPTIONS, URL_SERVICIOS } from 'src/app/shared/commons/config';
 import { 
   GetUserListDTO,
   GetUserDTO
@@ -19,4 +19,7 @@ export class ClientService {
 
   public getClients = () => 
     this.http.get<GetUserDTO[]>(`${this.users}getUsers`)
+
+  public newClient = (form: any) => 
+    this.http.post<any>(`${this.users}registerUser`, form, HTTP_OPTIONS);
 }

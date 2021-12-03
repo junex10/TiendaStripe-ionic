@@ -22,6 +22,8 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
+    NewClientComponent,
+    ClientDetailComponent
   ],
   imports: [
     CommonModule,
