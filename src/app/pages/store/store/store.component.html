@@ -14,9 +14,9 @@
       </ng-container>
     </ion-list-header>
     <ion-list>
-      <ion-item lines="none" class='boxShadowItems mt-4' *ngFor='let item of products; let i = index'>
+      <ion-item lines="none" class='boxShadowItems mt-4' *ngFor='let item of products; let i = index' [routerLink]="['/product', item.id]">
         <ion-label>{{ item.product }}</ion-label>
-        <ion-icon slot='end' name='arrow-forward' [ngStyle]="{'color': 'black'}" [routerLink]="['/product', item.id]"></ion-icon>
+        <ion-icon slot='end' name='arrow-forward' [ngStyle]="{'color': 'black'}"></ion-icon>
       </ion-item>
     </ion-list>
   </div>
