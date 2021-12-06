@@ -26,11 +26,13 @@ export class ClientComponent implements OnInit {
       .subscribe(
         clients => {
           clients.map(val => {
-            this.clients.push({
-              id: val.id,
-              email: val.email,
-              role: val.profile.role
-            })
+            if (val.profile.role !== 'Administrador') {
+              this.clients.push({
+                id: val.id,
+                email: val.email,
+                role: val.profile.role
+              })
+            }
           })
         }
       )

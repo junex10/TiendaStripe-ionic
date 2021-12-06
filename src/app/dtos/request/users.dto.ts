@@ -56,3 +56,25 @@ export class NewClientDTO{
     userType: string;
     person: PersonDTO;
 }
+export class EditPersonDTO{
+    email: string;
+    phone: string;
+    areaCode: string;
+    name: string;
+    lastname: string;
+    newEmail?: string;
+}
+export class UpdatePhoneDTO{
+    email: string;
+    phone: string;
+    areaCode: string;
+}
+export class UpdateNamesDTO{
+    email: string;
+    name: string;
+    lastname: string;
+}
+export class UpdateEmailDTO{
+    email: string;
+    newEmail: string;
+}

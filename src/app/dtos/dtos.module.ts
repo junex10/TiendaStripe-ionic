@@ -20,5 +20,9 @@ export {
     PersonDTO,
     CardsDTO,
     AccessDTO,
-    ProfileDTO
+    ProfileDTO,
+    EditPersonDTO,
+    UpdatePhoneDTO,
+    UpdateNamesDTO,
+    UpdateEmailDTO
 } from './request/users.dto';

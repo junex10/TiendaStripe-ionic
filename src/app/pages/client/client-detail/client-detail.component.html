@@ -1,130 +1,159 @@
 <ion-header>
-	<ion-toolbar style="--background:var(--azul);">
-		<ion-buttons slot="start" style="color:white;">
+  <ion-toolbar style="--background:var(--azul);">
+    <ion-buttons slot="start" style="color:white;">
       <ion-back-button [routerLink]="['/client']"></ion-back-button>
     </ion-buttons>
-		<ion-title slot="end" style="color:white;">Cuenta</ion-title>
-	</ion-toolbar>
+    <ion-title slot="end" style="color:white;">Cuenta</ion-title>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-	<div class="main-content">
+  <div class="main-content">
 
-		<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center"
-			style="min-height: 600px;">
-			<!-- Mask -->
-			<span class="mask bg-gradient-default opacity-8"></span>
-			<!-- Header container -->
-			<div class="container-fluid d-flex align-items-center">
-				<div class="row">
-          <div class='col-12'>
-            
-          </div>
-					<div class="col-lg-7 col-md-10">
-						<h1 class="display-2 text-white" style='color:#333 !important;'>Hola {{ nombre }}</h1>
-						<p class="text-white mt-0 mb-5" style='color:#333 !important;'>Este es tu perfil de cuenta, aqui podrá ver los datos de su
-							cuenta</p>
-						<button class="btn btn-info" style="background:#090099;border-color:#090099">
-							<ion-text (click)='closeSession()'>Cerrar sesión</ion-text>
-						</button>
-						<button class="btn btn-info" style="background:rgb(254, 55, 96);border-color:rgb(254, 55, 96);">
-							<ion-text [routerLink]="['/pedidos']" color='black'>Pedidos</ion-text>
-						</button>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- Page content -->
-		<div class="container-fluid mt--7">
+    <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px;">
+      <!-- Mask -->
+      <span class="mask bg-gradient-default opacity-8"></span>
+      <!-- Header container -->
+      <div class="container-fluid">
+        <img [src]='imageProfile' class='image-profile d-block m-auto boxShadowLight' width='120' />
+        <div class='button-profile'>
+          <h5 class="text-center name" style='color:#333 !important;'>{{ nombre }}</h5>
+          <button class="d-block m-auto btn btn-success text-white">
+            <ion-text (click)='edit()'>Editar</ion-text>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Page content -->
+    <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
-          <div class="card bg-secondary shadow">
+          <div class="card bg-secondary boxShadow">
             <div class="card-header bg-white border-0">
               <div class="row align-items-center">
                 <div class="col-8">
-                  <h3 class="mb-0">Datos</h3>
+                  <h3 class="mb-2">Datos</h3>
                 </div>
               </div>
             </div>
-            <div class="card-body">
-              <form>
-                <h6 class="heading-small text-muted mb-4">Información de usuario</h6>
-                <div class="pl-lg-4">
-                  <div class="row">
-                    <div class="col-lg-6">
-                      <div class="form-group focused">
-                        <label class="form-control-label"><span class='icono_form'><i class="fa fa-user"></i></span> Nombres:
-                          {{ nombre }}</label>
+            <div class="card-body" [ngStyle]="{'background': 'white'}">
+              <ng-container *ngIf='!editing'>
+                <form>
+                  <h6 class="heading-small text-muted mb-2">Información de usuario</h6>
+                  <div class="pl-lg-4">
+                    <div class="row">
+                      <div class='col-12'>
+                        <div class='form-group'>
+                          <label class="form-control-label"><span class='icono_form'><i class="fa fa-user"></i></span>
+                            Correo electrónico:
+                            {{ email }}</label>
+                        </div>
                       </div>
-                    </div>
-                    <div class="col-lg-6">
-                      <div class="form-group">
-                        <label class="form-control-label"><span class='icono_form'><i class="fa fa-user"></i></span> Apellidos:
-                          {{apellido}}</label>
+                      <div class="col-lg-6">
+                        <div class="form-group focused">
+                          <label class="form-control-label"><span class='icono_form'><i class="fa fa-user"></i></span>
+                            Nombres:
+                            {{ name }}</label>
+                        </div>
                       </div>
-                    </div>
-                    <div class="col-lg-6">
-                      <div class="form-group">
-                        <label class="form-control-label"><span class='icono_form'><i class="fa fa-user"></i></span> Cédula:
-                          <span *ngIf="cedula !== ''">{{cedula}}</span>
-                          <span *ngIf="cedula === ''">Sin cédula registrada</span>
-                        </label>
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <label class="form-control-label"><span class='icono_form'><i class="fa fa-user"></i></span>
+                            Apellidos:
+                            {{ lastname }}</label>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-lg-6">
-                      <div class="form-group focused">
-                        <label class="form-control-label"><span class='icono_form'><i class="fa fa-envelope"></i></span> Correo
-                          electronico: {{correo}}</label>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-lg-6">
-                      <div class="form-group focused">
-                        <label class="form-control-label"><span class='icono_form'><i class="fa fa-envelope"></i></span> Sexo: 
-                          <span *ngIf="sexo === 'M'">Macho</span>
-                          <span *ngIf="sexo === 'F'">Femenino</span>
-                        </label>
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <label class="form-control-label"><span class='icono_form'><i class="fas fa-phone"></i></span>
+                            Teléfono:
+                            <span *ngIf="phone !== ''">{{ phone }}</span>
+                            <span *ngIf="phone === ''">Sin teléfono registrado</span>
+                          </label>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <hr class="my-4">
-                <!-- Address -->
-                <h6 class="heading-small text-muted mb-4">Información de contacto</h6>
-                <div class="pl-lg-4">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="form-group focused">
-                        <label class="form-control-label"><span class='icono_form'><i class="fa fa-phone"></i></span> Teléfono:
-                          <span *ngIf="numero !== ''">{{numero}}</span>
-                          <span *ngIf="numero === ''">Sin número registrada</span>
-                        </label>
+                  <hr class="my-4">
+                </form>
+              </ng-container>
+              <ng-container *ngIf='editing'>
+                <form>
+                  <h6 class="heading-small text-muted mb-4">Información de usuario</h6>
+                  <div class="pl-lg-4">
+                    <div class='row'>
+                      <div class='col-12'>
+                        <div class='form-group row'>
+                          <div class='col-12 text-center'>
+                            <label class="form-control-label"><span class='icono_form'><i class="fas fa-envelope"></i></span>
+                              Correo electrónico:</label>
+                          </div>
+                          <div class='col-12 text-center mt-3 mb-3'>
+                            <input type='text' placeholder='Correo electrónico...' [value]="getEmail" class='form-control' #email>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <div class="form-group focused row">
+                          <div class='col-12 text-center'>
+                            <label class="form-control-label"><span class='icono_form'><i class="fa fa-user"></i></span>
+                              Nombre:</label>
+                          </div>
+                          <div class='col-12 text-center mt-3 mb-3'>
+                            <input type='text' placeholder='Nombre...' [value]="getName" class='form-control' #name>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="form-group row">
+                          <div class='col-12 text-center'>
+                            <label class="form-control-label"><span class='icono_form'><i class="fa fa-user"></i></span>
+                              Apellido:</label>
+                          </div>
+                          <div class='col-12 text-center mt-3 mb-3'>
+                            <input type='text' placeholder='Apellido...' [value]="getLastname" class='form-control' #lastname>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class='row'>
+                      <div class='col-lg-6'>
+                        <div class='form-group row'>
+                          <div class='col-12 text-center'>
+                            <label class="form-control-label"><span class='icono_form'><i class="fas fa-phone"></i></span>
+                              Teléfono:</label>
+                          </div>
+                          <div class='col-12 text-center mt-3 mb-3'>
+                            <input type='number' placeholder='Telefono...' [value]="getPhone" class='form-control' #phone>
+                          </div>
+                        </div>
+                      </div>
+                      <div class='col-lg-6'>
+                        <div class='form-group row'>
+                          <div class='col-12 text-center'>
+                            <label class="form-control-label"><span class='icono_form'><i class="fas fa-phone"></i></span>
+                              Código de area:</label>
+                          </div>
+                          <div class='col-12 text-center mt-3 mb-3'>
+                            <select class='form-control' #areaCode (change)='selectAreaCode(areaCode)'>
+                              <option value='+58'>+58</option>
+                            </select>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                  <div class="row">
-                   
-                    <div class="col-lg-4">
-                      <div class="form-group focused">
-                        <label class="form-control-label"><span class='icono_form'><i class="fas fa-map-marker-alt"></i></span>
-                          Dirección: 
-                          <span *ngIf="direccion !== ''">{{direccion}}</span>
-                          <span *ngIf="direccion === ''">Sin dirección registrada</span>
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <hr class="my-4">
-              </form>
+                  <hr class="my-4">
+                  <button type='button' class='btn btn-success btn-block w-75 d-block m-auto boxShadowItems' (click)='sendForm(email, name, lastname, phone)'>Enviar</button>
+                </form>
+              </ng-container>
             </div>
           </div>
         </div>
       </div>
     </div>
-	</div>
+  </div>
 </ion-content>
