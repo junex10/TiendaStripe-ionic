@@ -29,6 +29,11 @@ const routes: Routes = [
     path: 'category/new-category',
     component: NewCategoryComponent,
     canActivate: [StoreGuard]
+  },
+  {
+    path: 'product/product-detail/:id',
+    component: ProductDetailsComponent,
+    canActivate: [StoreGuard]
   }
 ];
 @NgModule({
