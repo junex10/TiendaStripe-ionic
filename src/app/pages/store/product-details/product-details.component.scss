@@ -1,0 +1,21 @@
+.actived{
+    color: var(--green);
+    h6{
+        font-weight: bolder;
+    }
+}
+.card{
+    border: none !important;
+    .card-title{
+        text-align: center;
+        font-size: 18px;
+        font-weight: bold;
+    }
+}
+img{
+    width: 100%;
+    max-height: 150px;
+}
+.time-detail{
+    font-size: 12px;
+}

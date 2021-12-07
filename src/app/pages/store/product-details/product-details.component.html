@@ -1,3 +1,57 @@
-<p>
-  product-details works!
-</p>
+<ion-header>
+  <ion-toolbar style="--background:var(--azul);">
+    <ion-buttons slot="start" style="color:white;">
+      <ion-back-button [routerLink]="['/store']"></ion-back-button>
+    </ion-buttons>
+    <ion-title slot="end" style="color:white;">Detalles del producto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class='container-fluid mt-4'>
+    <div class='card boxShadowItems'>
+      <div class='image'>
+        <img [src]="image" class='boxShadowLight'/>
+      </div>
+      <div class='card-body'>
+        <h5 class='card-title'>{{ productName }} <br /><div class='time-detail mt-3 mb-2'>{{ time }}</div></h5>
+        <div class='row mb-4'>
+          <div class='tab text-center col-4 actived' (click)="selectTab('price', price)" #price>
+            <h6>Precio</h6>
+          </div>
+          <div class='tab col-4 text-center' (click)="selectTab('stock', stock)" #stock>
+            <h6>En stock</h6>
+          </div>
+          <div class='tab col-4 text-center' (click)="selectTab('category', category)" #category>
+            <h6>Categoria</h6>
+          </div>
+        </div>
+
+        <div class='row' *ngIf='priceOpen'>
+          <div class='col-12'>
+            <h3 class='text-center' [ngStyle]="{'color': 'var(--green)', 'font-weight': 'bolder'}">200 $</h3>
+          </div>
+        </div>
+
+        <div class='row' *ngIf='stockOpen'>
+          <div class='col-12'>
+            <h3 class='text-center' [ngStyle]="{'color': 'var(--green)', 'font-weight': 'bolder'}">200 unidades</h3>
+          </div>
+        </div>
+
+        <div class='row' *ngIf='categoryOpen'>
+          <div class='col-12'>
+            <h3 class='text-center' [ngStyle]="{'color': 'var(--green)', 'font-weight': 'bolder'}">Telefono</h3>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-fab vertical='bottom' horizontal='end' slot='fixed'>
+  <ion-fab-button>
+    <i class="fas fa-edit"></i>
+  </ion-fab-button>
+</ion-fab>

@@ -4,7 +4,8 @@ import { HTTP_OPTIONS, URL_SERVICIOS } from 'src/app/shared/commons/config';
 import { 
   GetStockByCategoryDTO,
   GetCategoryDTO,
-  RegisterStockDTO
+  RegisterStockDTO,
+  GetProductByProductDTO
 } from 'src/app/dtos/dtos.module';
 
 @Injectable({
@@ -29,4 +30,7 @@ export class StoreService {
   
   public newCategory = (form: GetCategoryDTO) =>
     this.http.post<GetCategoryDTO>(`${this.store}newCategory`, form, HTTP_OPTIONS)
+
+  public getProductByProduct = (product: string) => 
+    this.http.get<GetProductByProductDTO>(`${this.store}getStock/${product}`)
 }

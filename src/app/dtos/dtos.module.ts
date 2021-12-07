@@ -1,3 +1,4 @@
+/* REQUEST */
 export {
     LoginDTO,
     JWTAUTHDTO
@@ -26,3 +27,9 @@ export {
     UpdateNamesDTO,
     UpdateEmailDTO
 } from './request/users.dto';
+
+/* RESOURCES */
+
+export {
+    GetProductByProductDTO
+} from './resources/getProducts.dto';

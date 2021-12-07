@@ -31,7 +31,7 @@ const routes: Routes = [
     canActivate: [StoreGuard]
   },
   {
-    path: 'product/product-detail/:id',
+    path: 'product/product-detail/:product',
     component: ProductDetailsComponent,
     canActivate: [StoreGuard]
   }
