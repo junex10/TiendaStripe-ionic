@@ -19,3 +19,14 @@ img{
 .time-detail{
     font-size: 12px;
 }
+.form-login{
+    input{
+        width: 100%;
+        padding: 10px;
+        border: none;
+        background: none;
+        border-bottom: 1px solid black;
+        border-radius: 0%;
+        outline: none !important;
+    }
+}

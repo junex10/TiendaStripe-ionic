@@ -5,7 +5,8 @@ import {
   GetStockByCategoryDTO,
   GetCategoryDTO,
   RegisterStockDTO,
-  GetProductByProductDTO
+  GetProductByProductDTO,
+  UpdateStockDTO
 } from 'src/app/dtos/dtos.module';
 
 @Injectable({
@@ -33,4 +34,7 @@ export class StoreService {
 
   public getProductByProduct = (product: string) => 
     this.http.get<GetProductByProductDTO>(`${this.store}getStock/${product}`)
+
+  public updateStock = (form: UpdateStockDTO) =>
+    this.http.put(`${this.store}updateStock`, form, HTTP_OPTIONS)
 }

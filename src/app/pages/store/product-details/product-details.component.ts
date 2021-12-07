@@ -5,6 +5,10 @@ import { StoreService } from 'src/app/services/index.service';
 import { AlertCommon } from 'src/app/shared/commons/alert.common';
 import { SpinnerCommon } from 'src/app/shared/commons/spinner.common';
 import * as moment from 'moment';
+import {
+  GetCategoryDTO,
+  UpdateStockDTO
+} from 'src/app/dtos/dtos.module';
 
 @Component({
   selector: 'app-product-details',
@@ -21,12 +25,14 @@ export class ProductDetailsComponent implements OnInit {
 
   image: string = "assets/icon/undraw_profile.svg";
   productName: string;
-  stock: number;
-  price: number;
-  category: string;
+  stockV: string;
+  priceV: string;
+  categoryV: string;
   time: string;
 
-  form: FormGroup
+  form: FormGroup;
+
+  categorys: GetCategoryDTO[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -40,13 +46,16 @@ export class ProductDetailsComponent implements OnInit {
       price: [null, Validators.required],
       stock: [null, Validators.required],
       category: [null, Validators.required],
-      product: [null, Validators.required]
+      product: [null, Validators.required],
+      id: [null, Validators.required],
+      image: [null]
     })
    }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.getProductByProduct(params.product)
+      this.getProductByProduct(params.product);
+      this.getCategorys()
     })
   }
 
@@ -82,12 +91,12 @@ export class ProductDetailsComponent implements OnInit {
       .subscribe(
         value => {
           this.productName = value.product;
-          this.price = value.price;
-          this.stock = value.stock;
+          this.priceV = new Intl.NumberFormat().format(value.price);
+          this.stockV = new Intl.NumberFormat().format(value.stock);
           this.image = value.image;
-          this.category = value.category;
+          this.categoryV = value.category;
           this.time = moment(value.createDate).format('DD/MM/YYYY H:M A');
-          console.log(this.time);
+          this.form.get('id').setValue(value.id);
         },
         () => {
           this.alert.conectionError();
@@ -96,4 +105,58 @@ export class ProductDetailsComponent implements OnInit {
       )
   }
 
+  getCategorys = () => {
+    this.store.getCategorys()
+      .subscribe(
+        val => val.map(x => x.name !== this.categoryV && x.name !== 'Sin filtros' ? this.categorys.push(x): null)
+      )
+  }
+
+  selectCat = ($event: HTMLSelectElement) => this.form.get('category').setValue($event.value);
+
+  sendForm = (
+    priceForm: HTMLInputElement,
+    stockForm: HTMLInputElement,
+    categoryForm: HTMLInputElement,
+    productForm: HTMLInputElement
+  ) => {
+    this.spinner.loadingAuth('Cargando...');
+    this.form.get('product').setValue(productForm.value);
+    this.form.get('price').setValue(priceForm.value);
+    this.form.get('stock').setValue(stockForm.value);
+    this.form.get('category').setValue(categoryForm.value);
+
+    if (!this.form.invalid) {
+      const newForm: UpdateStockDTO = {
+        product: this.product,
+        id: this.id,
+        price: this.price,
+        stock: this.stock,
+        category: this.category
+      };
+      this.store.updateStock(newForm)
+        .subscribe(
+          () => {
+            setTimeout(() => {
+              this.spinner.dismissAuth();
+              this.alert.successAlert('Actualizado', 'Se ha actualizado sastifactoriamente el producto');
+              this.router.navigate(['/store'])
+            }, 3000);
+          },
+          () => {
+            setTimeout(() => {
+              this.spinner.dismissAuth();
+              this.alert.conectionError();
+            }, 3000)
+          }
+        )
+    }
+  }
+
+  get product() { return this.form.get('product').value; }
+  get category() { return this.form.get('category').value; }
+  get price() { return this.form.get('price').value; }
+  get stock() { return this.form.get('stock').value; }
+  get id() { return this.form.get('id').value; }
+  get getImage() { return this.form.get('image').value; }
 }

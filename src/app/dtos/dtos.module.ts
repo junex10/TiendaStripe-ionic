@@ -8,7 +8,8 @@ export {
     GetCategoryDTO
 } from './request/category.dto';
 export {
-    RegisterStockDTO
+    RegisterStockDTO,
+    UpdateStockDTO
 } from './request/store.dto';
 export {
     GetUserListDTO,

@@ -11,11 +11,13 @@
   <div class='container-fluid mt-4'>
     <div class='card boxShadowItems'>
       <div class='image'>
-        <img [src]="image" class='boxShadowLight'/>
+        <img [src]="image" class='boxShadowLight' />
       </div>
       <div class='card-body'>
-        <h5 class='card-title'>{{ productName }} <br /><div class='time-detail mt-3 mb-2'>{{ time }}</div></h5>
-        <div class='row mb-4'>
+        <h5 class='card-title' *ngIf='!editing'>{{ productName }} <br />
+          <div class='time-detail mt-3 mb-2'>{{ time }}</div>
+        </h5>
+        <div class='row mb-4' *ngIf='!editing'>
           <div class='tab text-center col-4 actived' (click)="selectTab('price', price)" #price>
             <h6>Precio</h6>
           </div>
@@ -27,23 +29,58 @@
           </div>
         </div>
 
-        <div class='row' *ngIf='priceOpen'>
-          <div class='col-12'>
-            <h3 class='text-center' [ngStyle]="{'color': 'var(--green)', 'font-weight': 'bolder'}">200 $</h3>
+        <ng-container *ngIf='!editing'>
+          <div class='row' *ngIf='priceOpen'>
+            <div class='col-12'>
+              <h3 class='text-center' [ngStyle]="{'color': 'var(--green)', 'font-weight': 'bolder'}">{{ priceV }} $</h3>
+            </div>
           </div>
-        </div>
 
-        <div class='row' *ngIf='stockOpen'>
-          <div class='col-12'>
-            <h3 class='text-center' [ngStyle]="{'color': 'var(--green)', 'font-weight': 'bolder'}">200 unidades</h3>
+          <div class='row' *ngIf='stockOpen'>
+            <div class='col-12'>
+              <h3 class='text-center' [ngStyle]="{'color': 'var(--green)', 'font-weight': 'bolder'}">{{ stockV }} unidades</h3>
+            </div>
           </div>
-        </div>
 
-        <div class='row' *ngIf='categoryOpen'>
-          <div class='col-12'>
-            <h3 class='text-center' [ngStyle]="{'color': 'var(--green)', 'font-weight': 'bolder'}">Telefono</h3>
+          <div class='row' *ngIf='categoryOpen'>
+            <div class='col-12'>
+              <h3 class='text-center' [ngStyle]="{'color': 'var(--green)', 'font-weight': 'bolder'}">{{ categoryV }}</h3>
+            </div>
           </div>
-        </div>
+        </ng-container>
+
+        <ng-container *ngIf='editing'>
+          <form class='d-block m-auto text-center form-login w-100'>
+
+            <div class='row mb-4'>
+              <div class='col-12'>
+                <input type='text' id='productName' class='form-control' [value]='productName' #productForm />
+              </div>
+            </div>
+
+            <div class='row mb-4'>
+              <div class='col-12'>
+                <input type='text' class='form-control' [value]='priceV' #priceForm />
+              </div>
+            </div>
+
+            <div class='row mb-4'>
+              <div class='col-12'>
+                <input type='text' class='form-control' [value]='stockV' #stockForm />
+              </div>
+            </div>
+
+            <div class='row'>
+              <div class='col-12'>
+                <select class='form-control' #categoryForm (change)='selectCat(categoryForm)'>
+                  <option [value]="categoryV">{{ categoryV }}</option>
+                  <option *ngFor='let c of categorys' [value]="c.name">{{ c.name }}</option>
+                </select>
+              </div>
+            </div>
+            <button type='button' (click)='sendForm(priceForm, stockForm, categoryForm, productForm)' class='btn btn-success btn-block w-75 mt-4'>Enviar</button>
+          </form>
+        </ng-container>
 
       </div>
     </div>
@@ -51,7 +88,7 @@
 </ion-content>
 
 <ion-fab vertical='bottom' horizontal='end' slot='fixed'>
-  <ion-fab-button>
+  <ion-fab-button (click)='edit()'>
     <i class="fas fa-edit"></i>
   </ion-fab-button>
 </ion-fab>
