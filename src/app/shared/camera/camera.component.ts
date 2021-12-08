@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
-import { CameraPreview, CameraPreviewPictureOptions, CameraPreviewOptions, CameraPreviewDimensions } from '@ionic-native/camera-preview/ngx';
 import { ModalController } from '@ionic/angular';
 
 @Component({
@@ -14,12 +13,10 @@ export class CameraComponent implements OnInit {
   options: CameraOptions;
   @Input('image') image: string;
   photo: string = 'false';
-  cameraPreviewOpts: CameraPreviewOptions;
 
   constructor(
     private camera: Camera,
-    private modal: ModalController,
-    private cameraPreview: CameraPreview
+    private modal: ModalController
   ) {
     this.options = {
       quality: 50,

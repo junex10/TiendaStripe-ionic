@@ -92,3 +92,8 @@
     <i class="fas fa-edit"></i>
   </ion-fab-button>
 </ion-fab>
+<ion-fab *ngIf='editing' vertical='bottom' horizontal='start' slot='fixed'>
+  <ion-fab-button (click)='camera()'>
+    <i class="fas fa-camera"></i>
+  </ion-fab-button>
+</ion-fab>

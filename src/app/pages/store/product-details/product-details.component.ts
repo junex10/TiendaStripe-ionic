@@ -9,6 +9,9 @@ import {
   GetCategoryDTO,
   UpdateStockDTO
 } from 'src/app/dtos/dtos.module';
+import { ModalController } from '@ionic/angular';
+import { CameraComponent } from 'src/app/shared/camera/camera.component';
+import { ToastCommon } from 'src/app/shared/commons/toast.common';
 
 @Component({
   selector: 'app-product-details',
@@ -40,7 +43,9 @@ export class ProductDetailsComponent implements OnInit {
     private alert: AlertCommon,
     private spinner: SpinnerCommon,
     private router: Router,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private modal: ModalController,
+    private toast: ToastCommon
   ) {
     this.form = this.fb.group({
       price: [null, Validators.required],
@@ -48,7 +53,7 @@ export class ProductDetailsComponent implements OnInit {
       category: [null, Validators.required],
       product: [null, Validators.required],
       id: [null, Validators.required],
-      image: [null]
+      image: [null,]
     })
    }
 
@@ -94,6 +99,7 @@ export class ProductDetailsComponent implements OnInit {
           this.priceV = new Intl.NumberFormat().format(value.price);
           this.stockV = new Intl.NumberFormat().format(value.stock);
           this.image = value.image;
+          this.form.get('image').setValue(value.image);
           this.categoryV = value.category;
           this.time = moment(value.createDate).format('DD/MM/YYYY H:M A');
           this.form.get('id').setValue(value.id);
@@ -132,7 +138,8 @@ export class ProductDetailsComponent implements OnInit {
         id: this.id,
         price: this.price,
         stock: this.stock,
-        category: this.category
+        category: this.category,
+        image: this.image
       };
       this.store.updateStock(newForm)
         .subscribe(
@@ -151,6 +158,22 @@ export class ProductDetailsComponent implements OnInit {
           }
         )
     }
+  }
+
+  camera = async() => {
+    const modal = await this.modal.create({
+      component: CameraComponent,
+      componentProps: {
+        image: this.getImage
+      }
+    });
+    modal.onDidDismiss()
+      .then(image => {
+        this.form.get('image').setValue(image.data.result);
+        this.image = image.data.result;
+        this.toast.successToast('', 'Imagen guardada');
+      })
+    return await modal.present();
   }
 
   get product() { return this.form.get('product').value; }
