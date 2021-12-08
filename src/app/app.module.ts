@@ -18,6 +18,8 @@ import { CameraPreview } from '@ionic-native/camera-preview/ngx';
 
 import { CameraComponent } from './shared/camera/camera.component';
 import { PagesModule } from './pages/pages.module';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -37,7 +39,9 @@ import { PagesModule } from './pages/pages.module';
     RouterLinkActive,
     Camera,
     CameraPreview,
-    CameraComponent
+    CameraComponent,
+    SplashScreen,
+    StatusBar
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
