@@ -1,20 +1,11 @@
 <ion-content>
   <div>
-    <div class='mb-4'>
-      <ion-select interface="popover" (ionChange)='selectAction($event)'>
-        <ion-select-option value="close">Cerrar</ion-select-option>
-        <ion-select-option value="newPhoto">Nueva foto</ion-select-option>
-      </ion-select>
-      <ion-header class='text-center mt-2 text-uppercase'>
-        <ion-title class='font-weight-bold'>Producto</ion-title>
-      </ion-header>
-    </div>
     <div class='row'>
       <div class='col-12 mt-4'>
         <img [src]='image' class='img img-thumbnail d-block m-auto' />
       </div>
     </div>
-    <button class='btn btn-success btn-block w-75 boxShadowItems d-block m-auto mb-4 mt-3' (click)='savePicture()'>Guardar</button>
+    <button class='btn btn-success btn-block w-75 boxShadow d-block m-auto mb-4 mt-3' (click)='savePicture()'>Guardar</button>
   </div>
 </ion-content>
 <ion-fab vertical="bottom" horizontal="center" slot="fixed">

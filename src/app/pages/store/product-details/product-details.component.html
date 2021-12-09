@@ -1,7 +1,7 @@
 <ion-header>
-  <ion-toolbar style="--background:var(--azul);">
+  <ion-toolbar style="--background:var(--blue-dark);">
     <ion-buttons slot="start" style="color:white;">
-      <ion-back-button [routerLink]="['/store']"></ion-back-button>
+      <ion-back-button [routerLink]="['/store']" icon="chevron-back"></ion-back-button>
     </ion-buttons>
     <ion-title slot="end" style="color:white;">Detalles del producto</ion-title>
   </ion-toolbar>
@@ -11,20 +11,20 @@
   <div class='container-fluid mt-4'>
     <div class='card boxShadowItems'>
       <div class='image'>
-        <img [src]="image" class='boxShadowLight' />
+        <img [src]="image" />
       </div>
       <div class='card-body'>
         <h5 class='card-title' *ngIf='!editing'>{{ productName }} <br />
           <div class='time-detail mt-3 mb-2'>{{ time }}</div>
         </h5>
         <div class='row mb-4' *ngIf='!editing'>
-          <div class='tab text-center col-4 actived' (click)="selectTab('price', price)" #price>
+          <div class='tab text-center col-4 actived text-white' (click)="selectTab('price', price)" #price>
             <h6>Precio</h6>
           </div>
-          <div class='tab col-4 text-center' (click)="selectTab('stock', stock)" #stock>
+          <div class='tab col-4 text-center text-white' (click)="selectTab('stock', stock)" #stock>
             <h6>En stock</h6>
           </div>
-          <div class='tab col-4 text-center' (click)="selectTab('category', category)" #category>
+          <div class='tab col-4 text-center text-white' (click)="selectTab('category', category)" #category>
             <h6>Categoria</h6>
           </div>
         </div>
@@ -32,19 +32,19 @@
         <ng-container *ngIf='!editing'>
           <div class='row' *ngIf='priceOpen'>
             <div class='col-12'>
-              <h3 class='text-center' [ngStyle]="{'color': 'var(--green)', 'font-weight': 'bolder'}">{{ priceV }} $</h3>
+              <h3 class='text-center' [ngStyle]="{'color': 'white', 'font-weight': 'bolder'}">{{ priceV }} $</h3>
             </div>
           </div>
 
           <div class='row' *ngIf='stockOpen'>
             <div class='col-12'>
-              <h3 class='text-center' [ngStyle]="{'color': 'var(--green)', 'font-weight': 'bolder'}">{{ stockV }} unidades</h3>
+              <h3 class='text-center' [ngStyle]="{'color': 'white', 'font-weight': 'bolder'}">{{ stockV }} unidades</h3>
             </div>
           </div>
 
           <div class='row' *ngIf='categoryOpen'>
             <div class='col-12'>
-              <h3 class='text-center' [ngStyle]="{'color': 'var(--green)', 'font-weight': 'bolder'}">{{ categoryV }}</h3>
+              <h3 class='text-center' [ngStyle]="{'color': 'white', 'font-weight': 'bolder'}">{{ categoryV }}</h3>
             </div>
           </div>
         </ng-container>
@@ -78,7 +78,7 @@
                 </select>
               </div>
             </div>
-            <button type='button' (click)='sendForm(priceForm, stockForm, categoryForm, productForm)' class='btn btn-success btn-block w-75 mt-4'>Enviar</button>
+            <button type='button' (click)='sendForm(priceForm, stockForm, categoryForm, productForm)' class='btn btn-success btn-block w-75 mt-4 boxShadow'>Enviar</button>
           </form>
         </ng-container>
 

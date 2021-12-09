@@ -4,11 +4,6 @@ ion-content {
         height: 200px;
     }
 }
-ion-fab {
-    ion-fab-button {
-        --background: var(--green);
-    }
-}
 ion-header::after {
     background-image: none;
 }
@@ -19,5 +14,3 @@ ion-header::after {
     top: 10px;
     color: var(--dark);
 }
-/*ion-select::part(icon) {
-}*/

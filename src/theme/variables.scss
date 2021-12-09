@@ -110,6 +110,7 @@
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --blue-dark: #2f3846;
   --item: #465162;
+  --azul-form: rgb(72, 83, 101);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -353,7 +354,7 @@ ion-list {
 .btn {
   border: none !important;
   border-radius: 25px;
-  font-weight: bolder;
+  font-size: 15px;
 }
 /* Toast */
 .successToast {
@@ -371,9 +372,6 @@ ion-back-button {
 .image-profile {
   border-radius: 50%;
 }
-body{
-  background: black !important;
-}
 .image-item{
   width: 100px;
   height: 100px;
@@ -381,4 +379,7 @@ body{
   border-radius: 10px !important;
   padding-top: 10px;
   padding-bottom: 10px;
+}
+.card {
+  background-color: var(--azul-form);
 }

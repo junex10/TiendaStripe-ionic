@@ -50,18 +50,6 @@ export class CameraComponent implements OnInit {
   }
 
   close = () => this.modal.dismiss({ 'dismissed': true })
-
-  selectAction = ($event: CustomEvent) => {
-    const { value } = $event.detail;
-    switch(value) {
-      case 'close':
-        this.modal.dismiss();
-      break;
-      case 'newPhoto':
-        this.image = '';
-      break;
-    }
-  }
   savePicture = () => 
     this.modal.dismiss({ result: this.image });
 }

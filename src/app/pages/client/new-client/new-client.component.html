@@ -1,14 +1,14 @@
 <ion-header>
-  <ion-toolbar style="--background:var(--azul);">
+  <ion-toolbar style="--background:var(--blue-dark);">
     <ion-buttons slot="start" style="color:black;">
-      <ion-back-button [routerLink]="['/client']"></ion-back-button>
+      <ion-back-button [routerLink]="['/client']" icon="chevron-back"></ion-back-button>
     </ion-buttons>
     <ion-title slot="end" style="color:white;">Nuevo cliente</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <form class='d-block m-auto text-center form-login w-75'>
-    <div class='row mt-4 card boxShadowLight'>
+  <form class='d-block m-auto text-center form-login'>
+    <div class='row mt-4 card'>
       <div class='col-12'>
         <div class='row mt-4'>
           <div class='col-2'>
@@ -41,8 +41,8 @@
           </div>
         </div>
       </div>
-      <div class='section-title'>
-        Datos de persona:
+      <div class='section-title mt-4 mb-2'>
+        <h4>Datos de persona:</h4>
       </div>
       <div class='col-12 mt-4'>
         <div class='row'>
@@ -87,6 +87,6 @@
         </div>
       </div>
     </div>
-    <button type='button' (click)='register(email, password, name, lastname, phone)' class='btn btn-success btn-block mt-4 w-75 mb-4 boxShadowLight'>Registrar</button>
+    <button type='button' (click)='register(email, password, name, lastname, phone)' class='btn btn-success btn-block mt-4 w-75 mb-4 boxShadow'>Registrar</button>
   </form>
 </ion-content>

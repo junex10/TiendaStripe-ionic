@@ -1,5 +1,7 @@
 .actived{
-    color: var(--green);
+    color: white;
+    background-color: var(--green);
+    border-radius: 25px;
     h6{
         font-weight: bolder;
     }
@@ -10,7 +12,18 @@
         text-align: center;
         font-size: 18px;
         font-weight: bold;
+        color: white !important;
     }
+}
+select{
+    border: none !important;
+    border-bottom: 1px solid white !important;
+    border-radius: 0% !important;
+    background-color: transparent !important;
+    color: white !important;
+}
+option{
+    color: black !important;
 }
 img{
     width: 100%;
@@ -25,8 +38,9 @@ img{
         padding: 10px;
         border: none;
         background: none;
-        border-bottom: 1px solid black;
-        border-radius: 0%;
+        border-bottom: 1px solid white;
         outline: none !important;
+        color: white;
+        border-radius: 0;
     }
 }
