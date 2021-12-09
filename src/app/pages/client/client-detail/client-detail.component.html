@@ -1,7 +1,7 @@
 <ion-header>
-  <ion-toolbar style="--background:var(--azul);">
+  <ion-toolbar style="--background:var(--blue-dark);">
     <ion-buttons slot="start" style="color:white;">
-      <ion-back-button [routerLink]="['/client']"></ion-back-button>
+      <ion-back-button [routerLink]="['/client']" icon="chevron-back"></ion-back-button>
     </ion-buttons>
     <ion-title slot="end" style="color:white;">Cuenta</ion-title>
   </ion-toolbar>
@@ -16,7 +16,7 @@
       <span class="mask bg-gradient-default opacity-8"></span>
       <!-- Header container -->
       <div class="container-fluid">
-        <img [src]='imageProfile' class='image-profile d-block m-auto boxShadowLight' width='120' />
+        <img [src]='imageProfile' class='image-profile d-block m-auto boxShadow' width='120' />
         <div class='button-profile'>
           <h5 class="text-center name" style='color:#333 !important;'>{{ nombre }}</h5>
           <button class="d-block m-auto btn btn-success text-white">
@@ -29,47 +29,47 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
-          <div class="card bg-secondary boxShadow">
-            <div class="card-header bg-white border-0">
+          <div class="card boxShadow">
+            <div class="card-header border-0">
               <div class="row align-items-center">
                 <div class="col-8">
-                  <h3 class="mb-2">Datos</h3>
+                  <h3 class="mb-2 text-white">Datos</h3>
                 </div>
               </div>
             </div>
-            <div class="card-body" [ngStyle]="{'background': 'white'}">
+            <div class="card-body">
               <ng-container *ngIf='!editing'>
                 <form>
-                  <h6 class="heading-small text-muted mb-2">Información de usuario</h6>
+                  <h6 class="heading-small text-white mb-2">Información de usuario</h6>
                   <div class="pl-lg-4">
                     <div class="row">
                       <div class='col-12'>
                         <div class='form-group'>
                           <label class="form-control-label"><span class='icono_form'><i class="fa fa-user"></i></span>
                             Correo electrónico:
-                            {{ email }}</label>
+                            <b>{{ email }}</b></label>
                         </div>
                       </div>
                       <div class="col-lg-6">
                         <div class="form-group focused">
                           <label class="form-control-label"><span class='icono_form'><i class="fa fa-user"></i></span>
                             Nombres:
-                            {{ name }}</label>
+                            <b>{{ name }}</b></label>
                         </div>
                       </div>
                       <div class="col-lg-6">
                         <div class="form-group">
                           <label class="form-control-label"><span class='icono_form'><i class="fa fa-user"></i></span>
                             Apellidos:
-                            {{ lastname }}</label>
+                            <b>{{ lastname }}</b></label>
                         </div>
                       </div>
                       <div class="col-lg-6">
                         <div class="form-group">
                           <label class="form-control-label"><span class='icono_form'><i class="fas fa-phone"></i></span>
                             Teléfono:
-                            <span *ngIf="phone !== ''">{{ phone }}</span>
-                            <span *ngIf="phone === ''">Sin teléfono registrado</span>
+                            <span *ngIf="phone !== ''"><b>{{ phone }}</b></span>
+                            <span *ngIf="phone === ''"><b>Sin teléfono registrado</b></span>
                           </label>
                         </div>
                       </div>
@@ -79,8 +79,8 @@
                 </form>
               </ng-container>
               <ng-container *ngIf='editing'>
-                <form>
-                  <h6 class="heading-small text-muted mb-4">Información de usuario</h6>
+                <form class='form-login'>
+                  <h6 class="heading-small text-white mb-4">Información de usuario</h6>
                   <div class="pl-lg-4">
                     <div class='row'>
                       <div class='col-12'>
@@ -90,7 +90,7 @@
                               Correo electrónico:</label>
                           </div>
                           <div class='col-12 text-center mt-3 mb-3'>
-                            <input type='text' placeholder='Correo electrónico...' [value]="getEmail" class='form-control' #email>
+                            <input type='text' placeholder='Correo electrónico...' class='w-100' [value]="getEmail" #email>
                           </div>
                         </div>
                       </div>
@@ -103,7 +103,7 @@
                               Nombre:</label>
                           </div>
                           <div class='col-12 text-center mt-3 mb-3'>
-                            <input type='text' placeholder='Nombre...' [value]="getName" class='form-control' #name>
+                            <input type='text' placeholder='Nombre...' [value]="getName" class='w-100' #name>
                           </div>
                         </div>
                       </div>
@@ -114,7 +114,7 @@
                               Apellido:</label>
                           </div>
                           <div class='col-12 text-center mt-3 mb-3'>
-                            <input type='text' placeholder='Apellido...' [value]="getLastname" class='form-control' #lastname>
+                            <input type='text' placeholder='Apellido...' [value]="getLastname" class='w-100' #lastname>
                           </div>
                         </div>
                       </div>
@@ -127,7 +127,7 @@
                               Teléfono:</label>
                           </div>
                           <div class='col-12 text-center mt-3 mb-3'>
-                            <input type='number' placeholder='Telefono...' [value]="getPhone" class='form-control' #phone>
+                            <input type='number' placeholder='Telefono...' [value]="getPhone" class='w-100' #phone>
                           </div>
                         </div>
                       </div>
@@ -146,7 +146,6 @@
                       </div>
                     </div>
                   </div>
-                  <hr class="my-4">
                   <button type='button' class='btn btn-success btn-block w-75 d-block m-auto boxShadowItems' (click)='sendForm(email, name, lastname, phone)'>Enviar</button>
                 </form>
               </ng-container>
