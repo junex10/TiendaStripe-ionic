@@ -15,14 +15,14 @@
       <ion-label>Clientes</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button (click)='switchTab()'>
-      <i class="fas fa-times"></i>
-      <ion-label>Ocultar</ion-label>
-    </ion-tab-button>
-
     <ion-tab-button (click)='closeSession()'>
       <i class="fas fa-times"></i>
       <ion-label>Cerrar sesión</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button (click)='switchTab()'>
+      <i class="fas fa-arrow-circle-left"></i>
+      <ion-label>Ocultar</ion-label>
     </ion-tab-button>
   </ion-tab-bar>
   <app-sidebar [section]="section"></app-sidebar>

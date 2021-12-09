@@ -331,7 +331,7 @@ ion-list {
 }
 ion-fab {
   ion-fab-button {
-    --background: var(--green);
+    --background: var(--azul);
   }
 }
 .bg-transparent {
@@ -357,7 +357,7 @@ ion-list {
 }
 /* Toast */
 .successToast {
-  --background: var(--green);
+  --background: var(--blue-dark);
   --color: white;
   font-weight: bold;
   --box-shadow: 0 3px 6px 0 rgba(50, 50, 50, 0.7);

@@ -1,7 +1,7 @@
 <div id='sidebar'>
   <ion-menu side="start" contentId="main-content" menuId="main">
     <ion-header>
-      <ion-toolbar [ngStyle]="{'color': 'var(--blue-dark)'}" [color]="'white'">
+      <ion-toolbar [ngStyle]="{'color': 'white'}" [color]="'white'">
         <ion-title>{{ actualPage }}</ion-title>
       </ion-toolbar>
     </ion-header>
@@ -21,18 +21,8 @@
     <ion-header class="ion-no-border">
       <ion-toolbar class="new-background-color">
         <ion-buttons slot="start">
-          <ion-menu-button [ngStyle]="{'color': 'var(--black-gray)'}"><i class="fas fa-ellipsis-h"></i></ion-menu-button>
+          <ion-menu-button [ngStyle]="{'color': 'white'}"><i class="fas fa-ellipsis-h"></i></ion-menu-button>
         </ion-buttons>
-        <!--<ion-title slot="end" (click)='openMenu()'>{{ title }}</ion-title>-->
-        <!--<button ion-button [ngStyle]="{'background-color': 'var(--blue-dark)'}" slot='end'>
-          <div class='icon'>
-            <i class="far fa-bell"></i>
-            <div class='notification'>
-              2
-            </div>
-          </div>
-        </button>-->
-        <!--<button ion-button [ngStyle]="{'background-color': '#1F1F1F'}" slot='end' class='mr-4'><i class="far fa-bell-slash"></i></button>-->
       </ion-toolbar>
     </ion-header>
 

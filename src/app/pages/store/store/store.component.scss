@@ -1,6 +1,10 @@
 ion-searchbar {
     max-width: 95%;
+    --background: white !important;
 }
 ion-select {
     color: white;
+}
+.select-interface-option.md.sc-ion-select-popover.item.in-list.ion-activatable.ion-focusable.hydrated.item-label{
+    --background: transparent !important;
 }

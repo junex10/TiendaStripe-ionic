@@ -20,8 +20,11 @@
     }
 }
 ion-icon.action-icon {
-    color: var(--success) !important;
+    color: white !important;
 }
 ion-icon{
-    color: black !important;
+    color: white !important;
+}
+ion-list ion-item{
+    --background: transparent !important;
 }
