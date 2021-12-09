@@ -4,13 +4,18 @@
         padding: 10px;
         border: none;
         background: none;
-        border-bottom: 1px solid black;
+        border-bottom: 1px solid white;
         outline: none !important;
+        color: white;
     }
+    input::placeholder {
+        color: white !important;
+    }
+    width: 85% !important;
 }
 .login-icon{
     font-size: 22px;
-    color: var(--green);
+    color: white;
     position: relative;
     top: 11px;
 }

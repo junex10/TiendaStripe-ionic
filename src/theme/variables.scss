@@ -383,3 +383,35 @@ ion-back-button {
 .card {
   background-color: var(--azul-form);
 }
+/* Form */
+.form-login{
+  input{
+      width: 80%;
+      padding: 10px;
+      border: none;
+      background: none;
+      border-bottom: 1px solid white;
+      outline: none !important;
+      color: white;
+  }
+  input::placeholder {
+      color: white !important;
+  }
+  width: 85% !important;
+}
+.login-icon{
+  font-size: 22px;
+  color: white;
+  position: relative;
+  top: 11px;
+}
+select{
+  border: none !important;
+  border-bottom: 1px solid white !important;
+  border-radius: 0% !important;
+  background-color: transparent !important;
+  color: white !important;
+}
+option{
+  color: black !important;
+}
