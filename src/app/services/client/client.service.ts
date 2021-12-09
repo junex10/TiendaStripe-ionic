@@ -38,4 +38,7 @@ export class ClientService {
   
   public getClientById = (id: string) => 
     this.http.get<GetUserDTO>(`${this.users}getUsers/${id}`)
+
+  public getClientByEmail = (email: string) =>
+    this.http.get<GetUserDTO>(`${this.users}getUserByEmail/${email}`)
 }

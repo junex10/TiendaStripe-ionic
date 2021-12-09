@@ -37,4 +37,22 @@ export class ClientComponent implements OnInit {
         }
       )
   }
+  
+  buscar = (event: CustomEvent) => {
+    let { value } = event.detail;
+    let busqueda = this.clients;
+
+    if (value.length === 0) {
+      return this.getClients();
+    }
+
+    value = value.toLocaleLowerCase();
+
+    let find = busqueda.filter(c => {
+      let item = c.email.toLocaleLowerCase();
+      return item.includes(value);
+    });
+
+    this.clients = find;
+  }
 }

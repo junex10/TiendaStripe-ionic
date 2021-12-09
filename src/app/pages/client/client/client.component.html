@@ -4,9 +4,9 @@
         <ion-searchbar #searchbar [ngStyle]="{'color': 'black'}" placeholder="Buscar..." animated (ionChange)="buscar($event)"></ion-searchbar>
     </ion-list-header>
     <ion-list>
-      <ion-item lines="none" class='boxShadowItems mt-4' *ngFor='let item of clients; let i = index' [routerLink]="['/client-detail', item.id]">
+      <ion-item lines="none" class='mt-4' *ngFor='let item of clients; let i = index' [routerLink]="['/client-detail', item.id]">
         <ion-label>{{ item.email }}</ion-label>
-        <ion-icon slot='end' name='arrow-forward' [ngStyle]="{'color': 'black'}"></ion-icon>
+        <ion-icon slot='end' name='arrow-forward' [ngStyle]="{'color': 'white'}"></ion-icon>
       </ion-item>
     </ion-list>
   </div>
