@@ -27,9 +27,11 @@ export class SidebarComponent implements OnInit {
     switch(this.section) {
       case 'store':
         this.appOptions = ACTIONS_STORE;
+        this.title = 'Tienda';
       break;
       case 'client':
         this.appOptions = ACTIONS_CLIENT;
+        this.title = 'Clientes';
       break;
     }
   }
