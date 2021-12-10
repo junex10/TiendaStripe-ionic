@@ -119,7 +119,6 @@ export class ClientDetailComponent implements OnInit {
   getUserData = (id: string) => {
     this.client.getClientById(id).subscribe(
       data => {
-        console.log(data)
         this.form.get('name').setValue(data.person.name);
         this.form.get('lastname').setValue(data.person.lastname);
         this.form.get('email').setValue(data.email);

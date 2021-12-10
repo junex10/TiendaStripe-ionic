@@ -5,24 +5,24 @@
     </ion-fab-button>
   </ion-fab>
   <ion-tab-bar slot="bottom" class='boxShadow' *ngIf='tab'>
-    <ion-tab-button [routerLink]="['/store']">
+    <ion-tab-button [routerLink]="['/store']" id='store' [ngClass]="section === 'store' ? 'tab-selected' : ''">
       <i class="fas fa-store icon-tab"></i>
-      <ion-label>Tienda</ion-label>
+      <!--<ion-label>Tienda</ion-label>-->
     </ion-tab-button>
 
-    <ion-tab-button [routerLink]="['/client']">
+    <ion-tab-button [routerLink]="['/client']" id='client' [ngClass]="section === 'client' ? 'tab-selected' : ''">
       <i class="fas fa-users icon-tab"></i>
-      <ion-label>Clientes</ion-label>
+      <!--<ion-label>Clientes</ion-label>-->
     </ion-tab-button>
 
     <ion-tab-button (click)='closeSession()'>
-      <i class="fas fa-times"></i>
-      <ion-label>Cerrar sesión</ion-label>
+      <i class="fas fa-sign-out-alt"></i>
+      <!--<ion-label>Cerrar sesión</ion-label>-->
     </ion-tab-button>
 
     <ion-tab-button (click)='switchTab()'>
       <i class="fas fa-arrow-circle-left"></i>
-      <ion-label>Ocultar</ion-label>
+      <!--<ion-label>Ocultar</ion-label>-->
     </ion-tab-button>
   </ion-tab-bar>
   <app-sidebar [section]="section"></app-sidebar>
